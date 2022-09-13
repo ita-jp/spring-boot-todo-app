@@ -1,5 +1,6 @@
 package com.example.todo.service;
 
+import com.example.todo.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,11 +8,16 @@ import java.util.List;
 @Service
 public class TaskService {
 
+    private final TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
+
     public List<TaskEntity> findAll() {
-        return List.of(
-                new TaskEntity(1, "機能Aを実装する", true),
-                new TaskEntity(2, "機能Bを実装する", false),
-                new TaskEntity(3, "機能Cを実装する", false)
-        );
+        return taskRepository.select()
+                .stream()
+                .map(record -> new TaskEntity(record.getTaskId(), record.getTitle(), record.isCompleted()))
+                .toList();
     }
 }
