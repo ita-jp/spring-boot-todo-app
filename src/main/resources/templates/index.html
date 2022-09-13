@@ -14,9 +14,9 @@
         <th>ステータス</th>
     </tr>
     <tr>
-        <td>1</td>
-        <td th:text="${title}">__TITLE__</td>
-        <td>完了</td>
+        <td th:text="${task.taskId}">__TASK_ID__</td>
+        <td th:text="${task.title}">__TITLE__</td>
+        <td th:text="${task.isCompleted ? '完了' : '未完了'}">__STATUS__</td>
     </tr>
     <tr>
         <td>2</td>

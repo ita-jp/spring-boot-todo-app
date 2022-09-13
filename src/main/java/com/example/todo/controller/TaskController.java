@@ -11,7 +11,7 @@ public class TaskController {
 
     @GetMapping
     public String index(Model model) {
-        model.addAttribute("title", "機能Aを作る");
+        model.addAttribute("task", new TaskDTO(1, "機能Aを実装する", false));
         return "index";
     }
 }
