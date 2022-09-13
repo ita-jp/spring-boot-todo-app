@@ -10,9 +10,9 @@ public interface TaskRepository {
 
     @Select("""
             SELECT
-               task_id      AS taskId,
-               title        AS title,
-               is_completed AS isCompleted
+               task_id,
+               title,
+               is_completed
             FROM
                tasks
             """)
