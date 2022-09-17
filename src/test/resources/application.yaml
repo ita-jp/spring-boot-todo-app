@@ -1,0 +1,1 @@
+spring.sql.init.data-locations: # to ignore main/resources/data.sql
