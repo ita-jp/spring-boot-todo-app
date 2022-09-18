@@ -13,6 +13,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -49,5 +50,11 @@ class TaskControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("tasks/form"));
+    }
+
+    @Test
+    public void shouldCreateTasks() throws Exception {
+        mockMvc.perform(post("/tasks"))
+                .andExpect(status().isOk()); // TODO 301 redirect
     }
 }
