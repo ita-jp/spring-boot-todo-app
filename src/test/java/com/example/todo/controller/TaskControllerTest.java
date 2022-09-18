@@ -54,7 +54,11 @@ class TaskControllerTest {
 
     @Test
     public void shouldCreateTasks() throws Exception {
-        mockMvc.perform(post("/tasks"))
+        mockMvc.perform(
+                        post("/tasks")
+                                .content("title=hogehoge")
+                )
+                .andDo(print())
                 .andExpect(status().isOk()); // TODO 301 redirect
     }
 }
