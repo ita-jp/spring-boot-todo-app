@@ -43,4 +43,11 @@ class TaskControllerTest {
                 .andExpect(content().string(containsString("完了")));
     }
 
+    @Test
+    public void shouldShowTaskCreationForm() throws Exception {
+        mockMvc.perform(get("/tasks/new"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("tasks/form"));
+    }
 }

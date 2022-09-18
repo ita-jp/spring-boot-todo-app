@@ -23,4 +23,9 @@ public class TaskController {
         model.addAttribute("taskList", taskList);
         return "index";
     }
+
+    @GetMapping("/tasks/new")
+    public String showForm() {
+        return "tasks/form";
+    }
 }
