@@ -7,7 +7,7 @@
 <body>
 <h1>Task Form</h1>
 <a th:href="@{/}">一覧に戻る</a>
-<form>
+<form th:action="@{/tasks}" th:method="post">
   <div>
     <label for="titleInput">概要</label>
     <input type="text" id="titleInput">
