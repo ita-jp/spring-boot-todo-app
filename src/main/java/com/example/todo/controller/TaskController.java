@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,14 +29,14 @@ public class TaskController {
     }
 
     @GetMapping("/tasks/new")
-    public String showForm() {
+    public String showForm(@ModelAttribute TaskForm form) {
         return "tasks/form";
     }
 
     @PostMapping("/tasks")
     public String createTask(@Validated TaskForm form, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return showForm();
+            return showForm(form);
         }
         return index(model); // TODO PRG pattern
     }

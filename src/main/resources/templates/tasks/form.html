@@ -7,10 +7,10 @@
 <body>
 <h1>Task Form</h1>
 <a th:href="@{/}">一覧に戻る</a>
-<form th:action="@{/tasks}" th:method="post">
+<form th:action="@{/tasks}" th:method="post" th:object="${taskForm}">
   <div>
     <label for="titleInput">概要</label>
-    <input type="text" id="titleInput" name="title">
+    <input type="text" id="titleInput" th:field="*{title}">
   </div>
   <div>
     <button type="submit">作成</button>
