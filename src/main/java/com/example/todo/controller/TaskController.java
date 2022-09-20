@@ -34,11 +34,11 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public String createTask(@Validated TaskForm form, BindingResult bindingResult, Model model) {
+    public String createTask(@Validated TaskForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return showForm(form);
         }
         taskService.create(form.title());
-        return index(model); // TODO PRG pattern
+        return "redirect:/";
     }
 }
