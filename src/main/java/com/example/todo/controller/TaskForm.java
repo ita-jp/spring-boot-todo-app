@@ -1,6 +1,8 @@
 package com.example.todo.controller;
 
+import javax.validation.constraints.NotBlank;
+
 public record TaskForm(
-        String title
+        @NotBlank String title
 ) {
 }
