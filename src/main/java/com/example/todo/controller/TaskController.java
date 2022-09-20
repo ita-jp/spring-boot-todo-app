@@ -31,7 +31,7 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public String createTask(Model model) {
+    public String createTask(TaskForm form, Model model) {
         return index(model); // TODO PRG pattern
     }
 }
