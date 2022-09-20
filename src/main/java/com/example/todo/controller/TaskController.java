@@ -38,6 +38,7 @@ public class TaskController {
         if (bindingResult.hasErrors()) {
             return showForm(form);
         }
+        taskService.create(form.title());
         return index(model); // TODO PRG pattern
     }
 }

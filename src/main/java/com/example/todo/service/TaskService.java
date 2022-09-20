@@ -18,4 +18,8 @@ public class TaskService {
                 .map(record -> new TaskEntity(record.getTaskId(), record.getTitle(), record.isCompleted()))
                 .toList();
     }
+
+    public void create(String title) {
+        taskRepository.insert(title);
+    }
 }
