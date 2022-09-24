@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Task Form</title>
+    <title>タスク登録</title>
 </head>
 <body>
-<h1>Task Form</h1>
-<a th:href="@{/}">一覧に戻る</a>
-<form th:action="@{/tasks}" th:method="post" th:object="${taskForm}">
-  <div>
-    <label for="titleInput">概要</label>
-    <input type="text" id="titleInput" th:field="*{title}">
-  </div>
-  <div>
-    <button type="submit">作成</button>
-  </div>
-</form>
+<section layout:fragment="page-content">
+    <h1>タスク登録</h1>
+    <a th:href="@{/}">一覧に戻る</a>
+    <form th:action="@{/tasks}" th:method="post" th:object="${taskForm}">
+        <div>
+            <label for="titleInput">概要</label>
+            <input type="text" id="titleInput" th:field="*{title}">
+        </div>
+        <div>
+            <button type="submit">作成</button>
+        </div>
+    </form>
+</section>
 </body>
 </html>

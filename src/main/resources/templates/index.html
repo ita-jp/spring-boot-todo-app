@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Todo App</title>
+    <title>トップページ</title>
 </head>
 <body>
-<h1>タスク一覧</h1>
-<a th:href="@{/tasks/new}">タスク作成</a>
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>概要</th>
-        <th>ステータス</th>
-    </tr>
-    <tr th:each="task : ${taskList}" th:object="${task}">
-        <td th:text="*{taskId}">__TASK_ID__</td>
-        <td th:text="*{title}">__TITLE__</td>
-        <td th:text="*{isCompleted ? '完了' : '未完了'}">__STATUS__</td>
-    </tr>
-    </thead>
-</table>
+<section layout:fragment="page-content">
+    <h1>タスク一覧</h1>
+    <a th:href="@{/tasks/new}">タスク作成</a>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>概要</th>
+            <th>ステータス</th>
+        </tr>
+        <tr th:each="task : ${taskList}" th:object="${task}">
+            <td th:text="*{taskId}">__TASK_ID__</td>
+            <td th:text="*{title}">__TITLE__</td>
+            <td th:text="*{isCompleted ? '完了' : '未完了'}">__STATUS__</td>
+        </tr>
+        </thead>
+    </table>
+</section>
 </body>
 </html>
