@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/layout}">
+<head>
+    <title>タスク詳細</title>
+</head>
+<body>
+<section layout:fragment="page-content">
+    <h1 class="mt-3">タスク詳細</h1>
+    <a th:href="@{/}">一覧に戻る</a>
+    <div th:object="${task}">
+        <p th:text="*{title}"></p>
+        <p th:text="*{isCompleted ? '完了' : '未完了'}"></p>
+    </div>
+</section>
+</body>
+</html>

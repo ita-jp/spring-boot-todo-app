@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,5 +41,12 @@ public class TaskController {
         }
         taskService.create(form.title());
         return "redirect:/";
+    }
+
+    @GetMapping("/tasks/{taskId}")
+    public String show(@PathVariable("taskId") long taskId, Model model) {
+        var taskEntity = taskService.find(taskId).get(); // TODO
+        model.addAttribute("task", taskEntity);
+        return "tasks/detail";
     }
 }
